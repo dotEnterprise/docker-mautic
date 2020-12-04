@@ -21,6 +21,6 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: docker.pkg.github.com
-        repository: dotenterprise/docker-mautic/fpm
+        repository: dotenterprise/docker-mautic/apache
         tag_with_ref: true
-        dockerfile: fpm/Dockerfile
+        dockerfile: apache/Dockerfile
