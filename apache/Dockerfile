@@ -90,10 +90,10 @@ RUN curl -o mautic.zip -SL https://github.com/mautic/mautic/releases/download/${
     && chown -R www-data:www-data /usr/src/mautic
 
 # Copy init scripts and custom .htaccess
-COPY docker-entrypoint.sh /entrypoint.sh
-COPY makeconfig.php /makeconfig.php
-COPY makedb.php /makedb.php
-COPY mautic.crontab /etc/cron.d/mautic
+COPY apache/docker-entrypoint.sh /entrypoint.sh
+COPY apache/makeconfig.php /makeconfig.php
+COPY apache/makedb.php /makedb.php
+COPY apache/mautic.crontab /etc/cron.d/mautic
 RUN chmod 644 /etc/cron.d/mautic
 
 # Enable Apache Rewrite Module
