@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     zip \
     gcc make autoconf libc-dev pkg-config \
     libmcrypt-dev \
-    php-pecl \
+    php-pear \
     && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
     && rm -rf /var/lib/apt/lists/* \
     && rm /etc/cron.daily/*
