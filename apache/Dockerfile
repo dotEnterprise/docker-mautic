@@ -17,9 +17,13 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     libz-dev \
     unzip \
     zip \
+    gcc make autoconf libc-dev pkg-config \
+    libmcrypt-dev \
     && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
     && rm -rf /var/lib/apt/lists/* \
     && rm /etc/cron.daily/*
+
+RUN pecl7.2-sp install --nodeps mcrypt-snapshot
 
 RUN docker-php-ext-configure imap --with-imap --with-imap-ssl --with-kerberos \
     && docker-php-ext-configure opcache --enable-opcache \
