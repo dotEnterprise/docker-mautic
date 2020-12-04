@@ -14,5 +14,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build ./fpm --tag mautic:$(date +%s)
+        
+    - name: Push to GitHub Packages
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+        registry: docker.pkg.github.com
+        repository: dotenterprise/docker-mautic/fpm
+        tags: mautic:$(date +%s)
+        dockerfile: fpm/Dockerfile
